@@ -1,0 +1,8 @@
+package: .
+ignore:
+- brushup_websocket
+import:
+- package: github.com/gorilla/websocket
+  subpackages:
+  - mux
+  - handlers
