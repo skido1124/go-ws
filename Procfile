@@ -1,2 +1,2 @@
-worker: go-ws
+worker: go-ws1018
 
