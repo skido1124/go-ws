@@ -9,10 +9,11 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
+	"os"
 	"text/template"
 )
 
-var addr = flag.String("addr", ":" + "8080", "http service address")
+var addr = flag.String("addr", ":" + os.Getenv("PORT"), "http service address")
 var homeTempl = template.Must(template.ParseFiles("home.html"))
 
 func serveHome(w http.ResponseWriter, r *http.Request) {
@@ -29,6 +30,11 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("PORT is nothing")
+	}
+
 	log.SetFlags(log.Lshortfile)
 	flag.Parse()
 	go h.run()
@@ -37,7 +43,8 @@ func main() {
 	r.HandleFunc("/ws/{room}", func(w http.ResponseWriter, r *http.Request) {
 		serveWs(w, r)
 	})
-	err := http.ListenAndServe(*addr, r)
+	//err := http.ListenAndServe(*addr, r)
+	err := http.ListenAndServe(":" + port, r)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
