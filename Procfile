@@ -1,1 +1,1 @@
-worker: go-ws1018 -port=$PORT
+web: go-ws1018
