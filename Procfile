@@ -1,1 +1,1 @@
-web: go-ws1018
+web: go-ws

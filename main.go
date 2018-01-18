@@ -47,5 +47,7 @@ func main() {
 	err := http.ListenAndServe(":" + port, r)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
+	} else {
+		log.Println("ListenAndServe: success port" + port)
 	}
 }
