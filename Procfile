@@ -1,2 +1,2 @@
-worker: go-ws
+web: go-ws
 
