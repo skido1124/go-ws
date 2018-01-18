@@ -27,9 +27,5 @@ Thumbs.db
 build/*
 CONTRIBUTING.md
 
-# Go Vendor
-glide.lock
-vendor
-
 # Log
 *.log
